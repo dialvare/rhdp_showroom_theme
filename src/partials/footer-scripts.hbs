@@ -25,10 +25,7 @@
   }
   document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (e) {
-      var block = e.target.closest('.listingblock.execute')
-      if (!block) return
-      var tag = e.target.tagName.toLowerCase()
-      if (tag === 'pre' || tag === 'code') return
+      if (!e.target.closest('.paste-button')) return
       switchToTerminalTab()
     }, true)
   })
