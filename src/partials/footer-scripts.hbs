@@ -4,3 +4,33 @@
 {{#if env.SITE_SEARCH_PROVIDER}}
 {{> search-scripts}}
 {{/if}}
+<script>
+;(function () {
+  'use strict'
+  function switchToTerminalTab () {
+    var frames = [window.parent]
+    try { if (window.parent !== window.parent.parent) frames.push(window.parent.parent) } catch (e) {}
+    for (var f = 0; f < frames.length; f++) {
+      try {
+        var tabs = frames[f].document.querySelectorAll('.pf-v6-c-tabs__item-text')
+        for (var i = 0; i < tabs.length; i++) {
+          var text = tabs[i].textContent.trim()
+          if (text === 'Terminal' || text === 'Bastion') {
+            var link = tabs[i].closest('.pf-v6-c-tabs__link')
+            if (link) { link.click(); return }
+          }
+        }
+      } catch (e) {}
+    }
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('click', function (e) {
+      var block = e.target.closest('.listingblock.execute')
+      if (!block) return
+      var tag = e.target.tagName.toLowerCase()
+      if (tag === 'pre' || tag === 'code') return
+      switchToTerminalTab()
+    }, true)
+  })
+})()
+</script>

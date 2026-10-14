@@ -30,7 +30,7 @@
   --panel-border-color: var(--color-smoke-90);
   --scrollbar-thumb-color: var(--color-gray-10);
   /* navbar */
-  --navbar-background: var(--color-jet-70);
+  --navbar-background: #1f144a;
   --navbar-font-family: "Red Hat Display", "RedHatDisplay", "Noto Sans Arabic", "Noto Sans Hebrew", "Noto Sans JP", "Noto Sans KR", "Noto Sans Malayalam", "Noto Sans SC", "Noto Sans TC", "Noto Sans Thai", helvetica, arial, sans-serif;
   --navbar-font-color: var(--color-white);
   --navbar_hover-background: var(--color-jet-50);
